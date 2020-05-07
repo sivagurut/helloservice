@@ -6,7 +6,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class HelloWorldController {
-
+	@RequestMapping("/")
+	public HelloWorldBean index() {
+		return new HelloWorldBean("Test Api");
+	}
 	@GetMapping(path = "/api")
 	public HelloWorldBean helloWorldApi() {
 		return new HelloWorldBean("Hello World");
