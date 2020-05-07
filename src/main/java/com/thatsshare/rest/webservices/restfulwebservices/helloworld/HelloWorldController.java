@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @RestController
 public class HelloWorldController {
-	@RequestMapping("/")
+	@GetMapping(path = "/index")
 	public HelloWorldBean index() {
 		return new HelloWorldBean("Test Api");
 	}
