@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class HelloWorldController {
 
 	@GetMapping(path = "/")
-	public HelloWorldBean helloWorld() {
+	public HelloWorldBean helloWorldApi() {
 		return new HelloWorldBean("Hello World");
 	}
 	@GetMapping(path = "/hello-world")
