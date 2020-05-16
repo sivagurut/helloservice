@@ -1,16 +1,13 @@
 steps:
 # Build the openjdk image
 - name: gcr.io/cloud-builders/docker
-  args: ['build', '.', '-f', 'Dockerfile.builder', '-t', 'builder']
+  args: ['build', '.', '-f', 'Dockerfile', '-t', 'builder']
 - name: 'builder'
   args:
   - 'clean'
   - 'install'
   - '--batch-mode'
   - '-Ddocker.image.name=gcr.io/$PROJECT_ID/hello-service'
-  - '--also-make'
   id: 'MVN_PACKAGE'
-
- 
 images:
 - gcr.io/$PROJECT_ID/hello-service
