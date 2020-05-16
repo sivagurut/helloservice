@@ -1,7 +1,13 @@
 steps:
 # Build the openjdk image
+- name: 'ubuntu'
+  args: [ "touch", "foo" ]
+- name: 'ubuntu'
+  args: [ "ls", "-l" ]
+- name: 'gcr.io/cloud-builders/docker'
+  args: [ "run", "--volume", "/workspace:/workspace", "--rm", "ubuntu", "ls", "-l", "/workspace" ]
 - name: gcr.io/cloud-builders/docker
-  args: ['build', '.', '-f', 'Dockerfile', '-t', 'builder']
+  args: ['build', '.', '-f', 'Dockerfile', '-t', 'hello-service']
 - name: 'builder'
   args:
   - 'clean'
