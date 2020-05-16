@@ -8,14 +8,9 @@ steps:
   - 'install'
   - '--batch-mode'
   - '-Ddocker.image.name=gcr.io/$PROJECT_ID/hello-service'
-
   - '--also-make'
   id: 'MVN_PACKAGE'
 
-
-  # push the container image to Container Registry
-  - name: gcr.io/cloud-builders/docker
-    args: [ push, gcr.io/$PROJECT_ID/hello-service]
   # Deploy container image to Cloud Run
   - name: 'gcr.io/cloud-builders/gcloud'
     args: ['run', 'deploy', 'hello-service', '--image', 'gcr.io/$PROJECT_ID/hello-service', '--region', 'us-central1', '--platform', 'managed', '--allow-unauthenticated']
