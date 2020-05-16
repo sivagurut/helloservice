@@ -11,8 +11,6 @@ steps:
   - '--also-make'
   id: 'MVN_PACKAGE'
 
-  # Deploy container image to Cloud Run
-  - name: 'gcr.io/cloud-builders/gcloud'
-    args: ['run', 'deploy', 'hello-service', '--image', 'gcr.io/$PROJECT_ID/hello-service', '--region', 'us-central1', '--platform', 'managed', '--allow-unauthenticated']
+ 
 images:
 - gcr.io/$PROJECT_ID/hello-service
