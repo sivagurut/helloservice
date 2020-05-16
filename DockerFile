@@ -1,3 +1,2 @@
 ARG MAVEN_VERSION=latest
 FROM maven:3.5.0
-COPY deprecation.sh /bin
