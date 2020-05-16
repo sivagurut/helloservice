@@ -1,6 +1,6 @@
 steps:
   # Run the Maven build
-  - name: 'gcr.io/$PROJECT_ID/hello-service'
+  - name: gcr.io/elevated-server-275615/hello-service
     entrypoint: 'mvn'
     args: ['clean', 'install', '-DskipTests']
   - name: 'gcr.io/cloud-builders/docker'
