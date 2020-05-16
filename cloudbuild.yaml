@@ -1,19 +1,6 @@
 steps:
-# Build the openjdk image
-- name: 'ubuntu'
-  args: [ "touch", "foo" ]
-- name: 'ubuntu'
-  args: [ "ls", "-l" ]
+- name: 'gcr.io/cloud-builders/mvn'
+  args: ['install']
 - name: 'gcr.io/cloud-builders/docker'
-  args: [ "run", "--volume", "/workspace:/workspace", "--rm", "ubuntu", "ls", "-l", "/workspace" ]
-- name: gcr.io/cloud-builders/docker
-  args: ['build', '.', '-f', 'Dockerfile', '-t', 'hello-service']
-- name: 'builder'
-  args:
-  - 'clean'
-  - 'install'
-  - '--batch-mode'
-  - '-Ddocker.image.name=gcr.io/$PROJECT_ID/hello-service'
-  id: 'MVN_PACKAGE'
-images:
-- gcr.io/$PROJECT_ID/hello-service
+  args: ['build', '--tag=gcr.io/$PROJECT_ID/hello-service', '.']
+images: ['gcr.io/$PROJECT_ID/hello-service']
