@@ -25,9 +25,6 @@ steps:
   - '--tag=gcr.io/$PROJECT_ID/mvn'
   - '.'
 
-# Minimally invoke Maven.
-- name: 'gcr.io/$PROJECT_ID/mvn'
-  args: ['--version']
 
 # Run example builds.
 - name: 'gcr.io/$PROJECT_ID/mvn:3.3.9-jdk-8'
