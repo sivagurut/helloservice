@@ -26,13 +26,6 @@ steps:
   - '.'
 
 
-# Run example builds.
-- name: 'gcr.io/$PROJECT_ID/mvn:3.3.9-jdk-8'
-  args: ['install']
-  
-- name: 'gcr.io/$PROJECT_ID/mvn:3.5.0-jdk-8'
-  args: ['install']
-  
 - name: 'gcr.io/$PROJECT_ID/mvn'
   args: ['install']
   
