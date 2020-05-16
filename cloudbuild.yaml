@@ -41,6 +41,6 @@ steps:
   args: ['build', '--tag=gcr.io/$PROJECT_ID/hello-service', '.']
 images: ['gcr.io/$PROJECT_ID/hello-service']
 images:
-- 'gcr.io/$PROJECT_ID/mvn:3.3.9-jdk-8'
+
 - 'gcr.io/$PROJECT_ID/mvn:3.5.0-jdk-8'
 - 'gcr.io/$PROJECT_ID/mvn'
