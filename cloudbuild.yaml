@@ -1,9 +1,8 @@
 steps:
-
-  # build the container image
-  - name: gcr.io/cloud-builders/mvn
+  - name: 'gcr.io/cloud-builders/mvn'
     args: ['install']
-  – name: 'gcr.io/cloud-builders/docker'	
+  # build the container image
+  - name: gcr.io/cloud-builders/docker
     args: [ build, -t, gcr.io/$PROJECT_ID/hello-service:latest, . ]
 
   # push the container image to Container Registry
@@ -12,6 +11,8 @@ steps:
   # Deploy container image to Cloud Run
   - name: 'gcr.io/cloud-builders/gcloud'
     args: ['run', 'deploy', 'hello-service', '--image', 'gcr.io/$PROJECT_ID/hello-service:latest', '--region', 'us-central1', '--platform', 'managed', '--allow-unauthenticated']
+
+
 
 images:
 - gcr.io/$PROJECT_ID/hello-service:latest
